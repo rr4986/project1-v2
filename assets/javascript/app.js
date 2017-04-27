@@ -20,14 +20,10 @@ var city = "";
 var team = "";
 
 //store user input in database
-$("#search-term").on("click", function() {
-  league = $("#search").val().trim();
-  city = $("#search").val().trim();
-  team = $("#search").val().trim();
+$("#search").on("click", function() {
+  team = $(".search-term:selected").val();
 
   database.ref().set({
-    league: league,
-    city: city,
     team: team,
   });
 
@@ -155,7 +151,6 @@ function displayGifs() {
             
     });
 };
-<<<<<<< HEAD
 
 $("#search").on("click", function(event) {
     
@@ -166,7 +161,6 @@ $("#search").on("click", function(event) {
     displayGifs();
     wikipediaBox(searchData);
 })
-=======
 
 $("#search").on("click", function(event) {
     
@@ -178,4 +172,4 @@ $("#search").on("click", function(event) {
     wikipediaBox(searchData);
 })
 
->>>>>>> cc36a726d8e2ff7bdc600ae6badb966ea8e8612b
+
