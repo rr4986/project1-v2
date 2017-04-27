@@ -1,4 +1,6 @@
-// Initialize Firebase
+///////////////////////////
+// Initialize Firebase/////
+///////////////////////////
 var config = {
   apiKey: "AIzaSyBVdl2rA2nKOz4OSGuftySdI4B9mvAfPQ4",
   authDomain: "second-screen-sports.firebaseapp.com",
@@ -40,7 +42,14 @@ var awayTeam = "SAS";
 var homeTeam = "MEM";
 
 console.log(todayDate);
-//ajax to get sports api data
+
+
+//////////////////////////////////
+//ajax to get sports api data/////
+//////////////////////////////////
+
+
+
 var queryUrl = "https://www.mysportsfeeds.com/api/feed/pull/nba/2017-playoff/game_boxscore.json?gameid=" + customDate + "-MEM-SAS&teamstats=W,L,PTS,PTSA&playerstats=2PA,2PM,3PA,3PM,FTA,FTM";
 
 $.ajax({
@@ -88,49 +97,71 @@ $.ajax({
 
 });
 
-//sports teams typeahead options -- autocompletes search bar
-/*var nbaTeams = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'assets/javascript/nba.json'
-});
 
-var mlbTeams = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'assets/javascript/mlb.json'
-});
+////////////////////////////////////////////
+/////WIKIPEDIA FUNCTION WITH AJAX CALL//////
+////////////////////////////////////////////
 
-var nflTeams = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'assets/javascript/nfl.json'
-});
+var searchData = "";
 
-$('#multiple-datasets .typeahead').typeahead({
-  highlight: true
-},
-{
-  name: 'nba-teams',
-  display: 'team',
-  source: nbaTeams,
-  templates: {
-    header: '<h3 class="league-name">NBA Teams</h3>'
-  }
-},
-{
-  name: 'nfl-teams',
-  display: 'team',
-  source: nflTeams,
-  templates: {
-    header: '<h3 class="league-name">NFL Teams</h3>'
-  }
-},
-{
-  name: 'mlb-teams',
-  display: 'team',
-  source: mlbTeams,
-  templates: {
-    header: '<h3 class="league-name">MLB Teams</h3>'
-  }
-});*/
+
+function wikipediaBox(search) {
+ var RRsearchKey = search;
+ var RRqueryURL = "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page="+RRsearchKey+"&callback=?";
+    $.ajax({
+        type: "GET",
+        url: RRqueryURL,
+        contentType: "application/json; charset=utf-8",
+        async: false,
+        dataType: "json",
+        success: function (data) {
+
+          console.log(data);
+ 
+            var markup = data.parse.text["*"];
+            var blurb = $('<div></div>').html(markup);
+ 
+            // remove links as they will not work
+            blurb.find('a').each(function() { $(this).replaceWith($(this).html()); });
+   
+
+            $('#wikipedia').html($(blurb).find('p'));
+ 
+        },
+        error: function (errorMessage) {
+        }
+    });
+}
+
+////////////////////////////////////////
+/////GIPHY FUNCTION WITH AJAX CALL//////
+////////////////////////////////////////
+
+function displayGifs() {
+    
+    //the URL to search the site and grab 10 results
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchData + "&api_key=dc6zaTOxFJmzC&limit=10";
+
+    //ajax function that gets a response from the site
+    $.ajax({
+      url: queryURL,
+      method:"GET",
+    }).done(function(response) {
+      console.log(response);
+      for (var i = 0; i < response.data.length; i++) {
+        var gifs = response.data[i].images.downsized.url;
+      }
+      $("#gifs").append("<img src='" + gifs + " '>");
+            
+    });
+};
+
+$("#search").on("click", function(event) {
+    
+    event.preventDefault();
+    searchData = $(".search-term:selected").val();
+    
+    console.log(searchData);
+    displayGifs();
+    wikipediaBox(searchData);
+})
