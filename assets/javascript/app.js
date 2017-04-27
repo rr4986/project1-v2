@@ -20,14 +20,10 @@ var city = "";
 var team = "";
 
 //store user input in database
-$("#search-term").on("click", function() {
-  league = $("#search").val().trim();
-  city = $("#search").val().trim();
-  team = $("#search").val().trim();
+$("#search").on("click", function() {
+  team = $(".search-term:selected").val();
 
   database.ref().set({
-    league: league,
-    city: city,
     team: team,
   });
 
@@ -159,10 +155,21 @@ function displayGifs() {
 $("#search").on("click", function(event) {
     
     event.preventDefault();
+    searchData = $(".search-term:selected").val();
+    
+    console.log(searchData);
+    displayGifs();
+    wikipediaBox(searchData);
+})
+
+$("#search").on("click", function(event) {
+    
+    event.preventDefault();
     searchData = $("#search-term").val().trim();
     
     console.log(searchData);
     displayGifs();
     wikipediaBox(searchData);
 })
+
 
