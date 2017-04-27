@@ -8,19 +8,28 @@
   </script>
   <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js">
   </script>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" type="text/css">
   <link href="assets/css/bulma.css" rel="stylesheet" type="text/css">
+  <link href="assets/images/hooplaicon.png" rel="icon" type="image/png">
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js">
   </script>
 </head>
-<body>
+<body style= "background-image: url(assets/images/background.png)">
 <!--nav bar-->
-  <section class="hero is-dark">
+  <section class="hero is-dark" style= "background-image: url(assets/images/background1.png)">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title" style="text-align: center;">
+      <div class="homepage text-center">
+
+        <div class="text-center" style="font-family: 'Pacifico', cursive"> 
+          <h1 class= "title text">Hoopla</h1><img src="assets/images/hooplaicon.png"/>
+       </div>
+      </div>
+
+      <!-- <h1 class="title" style="text-align: center;">
         #HOOPLA
-      </h1>
+      </h1> -->
       <h2 class="subtitle" style="text-align: center;">
         Where hoops meets social
       </h2>
@@ -76,9 +85,9 @@
     <div class="tile is-vertical is-12">
       <div class="tile">
         <div class="tile is-parent is-vertical">
-          <article class="tile is-child notification is-primary">
+          <article class="tile is-child box" style="background-color: rgba(245, 245, 245, 0.4)">
             <!-- SCOREBOARD -->
-            <article class="tile is-child notification is-warning">
+            <article class="tile is-child box" style="background-color: rgba(245, 245, 245, 0.4)">
               <p class="title" style="text-align: center">SCOREBOARD</p>
               <table class="table">
                 <thead>
@@ -107,14 +116,14 @@
             </article>
             <!-- TWITTER -->
             <div class="tile is-parent">
-              <article class="tile is-child notification is-info">
+              <article class="tile is-child box" style="background-color: rgba(245, 245, 245, 0.4)">
                 <p class="title" style="text-align: center">BASKETBALL #HOOPLA</p>
                 <p class="subtitle" style="text-align: center;"">Join the conversation</p>
               </article>
             </div>
             <!-- WIKIPEDIA -->
             <div class="tile is-parent">
-              <article class="tile is-child notification is-danger">
+              <article class="tile is-child box" style="background-color: rgba(245, 245, 245, 0.4)">
                 <p class="title" style="text-align: center">WIKI-BALL</p>
                 <p class="subtitle" style="text-align: center">Quick facts about your fave team</p>
                 <div class="content" id="wikipedia">
@@ -124,7 +133,7 @@
             </div>
             <!-- GIFS -->
             <div class="tile is-parent">
-              <article class="tile is-child notification is-success">
+              <article class="tile is-child box" style="background-color: rgba(245, 245, 245, 0.4)">
                 <div class="content">
                   <p class="title" style="text-align: center;">MVG</p>
                   <p class="subtitle" style="text-align: center;">Most Valuable GIFs</p>
