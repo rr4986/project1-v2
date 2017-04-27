@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HOOPLA</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js">
+  </script>
+  <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/bulma.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js">
+  </script>
+</head>
+<body>
+  <!--nav bar-->
+  <section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        #HOOPLA
+      </h1>
+      <h2 class="subtitle">
+        Where hoops meets social
+      </h2>
+    </div>
+    <div class="level-right">
+          <label for="search">Search:</label> <input class="form-control" id="search-term" type="text"> <input id="search" type="submit" value="Submit">
+        </div>
+  </div>
+</section>
+      </div>
+    </div>
+  </nav><br>
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical is-12">
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification is-primary">
+            <article class="tile is-child notification is-warning">
+              <p class="title" style="text-align: center">SCOREBOARD</p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Home/Away</th>
+                    <th><abbr title="Location">City</abbr></th>
+                    <th>Team</th>
+                    <th><abbr title="Total Points">Score</abbr></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Away</td>
+                    <td id="away-team-city"></td>
+                    <td id="away-team-name"></td>
+                    <td id="away-team-score"></td>
+                  </tr>
+                  <tr>
+                    <td>Home</td>
+                    <td id="home-team-city"></td>
+                    <td id="home-team-name"></td>
+                    <td id="home-team-score"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+            <div class="tile is-parent">
+              <article class="tile is-child notification is-info">
+                <p class="title" style="text-align: center">BASKETBALL #HOOPLA</p>
+                <p class="subtitle" style="text-align: center;"">Join the conversation</p>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification is-danger">
+                <p class="title" style="text-align: center">WIKI-BALL</p>
+                <p class="subtitle" style="text-align: center">Quick facts about your fave team</p>
+                <div class="content">
+                  <!-- Content -->
+                </div>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification is-success">
+                <div class="content">
+                  <p class="title" style="text-align: center;">MVG</p>
+                  <p class="subtitle" style="text-align: center;">Most Valuable GIFs</p>
+                  <div class="content">
+                  </div>
+                </div>
+              </article>
+            </div> 
+            <script src="assets/javascript/app.js">
+            </script>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
