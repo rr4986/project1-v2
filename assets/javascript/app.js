@@ -56,7 +56,7 @@ $.ajax({
   console.log(SportsData);
   console.log(SportsData.scoreboard);
 
-var awayTeamCity1 = SportsData.scoreboard.gameScore[0].game.awayTeam.City
+  var awayTeamCity1 = SportsData.scoreboard.gameScore[0].game.awayTeam.City
   var awayTeamName1 = SportsData.scoreboard.gameScore[0].game.awayTeam.Name
   var awayTeamScore1 = SportsData.scoreboard.gameScore[0].awayScore
   
@@ -87,13 +87,9 @@ var awayTeamCity1 = SportsData.scoreboard.gameScore[0].game.awayTeam.City
   $("#home-team-city2").html(homeTeamCity2);
   $("#home-team-name2").html(homeTeamName2);
   $("#home-team-score2").html(homeTeamScore2);
-  if (awayTeamScore1=="undefined" || awayTeamScore2=="undefined" || homeTeamScore1=="undefined" || homeTeamScore2=="undefined"){
-    var noScore = "0";
-    $("#away-team-score1").html(noScore);
-    $("#home-team-score1").html(noScore);
-    $("#away-team-score2").html(noScore);
-    $("#home-team-score2").html(noScore);
-  }; 
+  
+  
+
 //refresh json data
   var previous = null;
     var current = null;
@@ -182,15 +178,7 @@ $("#search").on("click", function(event) {
     wikipediaBox(searchData);
 })
 
-$("#search").on("click", function(event) {
-    
-    event.preventDefault();
-    searchData = $(".search-term:selected").val();
-    
-    console.log(searchData);
-    displayGifs();
-    wikipediaBox(searchData);
-})
+
 
 ////////////////////////////////////////
 ///////////////TWITTER//////////////////
