@@ -155,6 +155,7 @@ function displayGifs() {
             
     });
 };
+<<<<<<< HEAD
 
 $("#search").on("click", function(event) {
     
@@ -165,3 +166,16 @@ $("#search").on("click", function(event) {
     displayGifs();
     wikipediaBox(searchData);
 })
+=======
+
+$("#search").on("click", function(event) {
+    
+    event.preventDefault();
+    searchData = $("#search-term").val().trim();
+    
+    console.log(searchData);
+    displayGifs();
+    wikipediaBox(searchData);
+})
+
+>>>>>>> cc36a726d8e2ff7bdc600ae6badb966ea8e8612b
