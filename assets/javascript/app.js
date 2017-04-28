@@ -33,10 +33,6 @@ $("#search").on("click", function() {
 //vars for queryUrl parameters
 
 var todayDate = moment().format("YYYY" + "MM" + "DD");
-var customDate = "20170425"
-var awayTeam = "SAS";
-var homeTeam = "MEM";
-
 console.log(todayDate);
 
 
@@ -46,7 +42,7 @@ console.log(todayDate);
 
 
 
-var queryUrl = "https://www.mysportsfeeds.com/api/feed/pull/nba/2017-playoff/game_boxscore.json?gameid=" + customDate + "-MEM-SAS&teamstats=W,L,PTS,PTSA&playerstats=2PA,2PM,3PA,3PM,FTA,FTM";
+var queryUrl = "https://www.mysportsfeeds.com/api/feed/pull/nba/2017-playoff/scoreboard.json?fordate=" + todayDate;
 
 $.ajax({
   method: "GET",
@@ -58,36 +54,56 @@ $.ajax({
 }).done(function(SportsData) {
   console.log("------------------------");
   console.log(SportsData);
-  console.log(SportsData.gameboxscore);
-  //log away team city
-  console.log(SportsData.gameboxscore.game.awayTeam.City);
-  //log away team name
-  console.log(SportsData.gameboxscore.game.awayTeam.Name);
-  //log away team points
-  console.log(SportsData.gameboxscore.quarterSummary.quarterTotals.awayScore);
-  //log home team city
-  console.log(SportsData.gameboxscore.game.homeTeam.City);
-  //log home team name
-  console.log(SportsData.gameboxscore.game.homeTeam.Name);
-  //log home team points
-  console.log(SportsData.gameboxscore.quarterSummary.quarterTotals.homeScore);
+  console.log(SportsData.scoreboard);
+
+  var awayTeamCity1 = SportsData.scoreboard.gameScore[0].game.awayTeam.City
+  var awayTeamName1 = SportsData.scoreboard.gameScore[0].game.awayTeam.Name
+  var awayTeamScore1 = SportsData.scoreboard.gameScore[0].awayScore
   
-  //print game stats to page
-  var awayTeamCity = SportsData.gameboxscore.game.awayTeam.City
-  var awayTeamName = SportsData.gameboxscore.game.awayTeam.Name
-  var awayTeamScore = SportsData.gameboxscore.quarterSummary.quarterTotals.awayScore
+  var homeTeamCity1 = SportsData.scoreboard.gameScore[0].game.homeTeam.City
+  var homeTeamName1 = SportsData.scoreboard.gameScore[0].game.homeTeam.Name
+  var homeTeamScore1 = SportsData.scoreboard.gameScore[0].awayScore
+
+  var awayTeamCity2 = SportsData.scoreboard.gameScore[1].game.awayTeam.City
+  var awayTeamName2 = SportsData.scoreboard.gameScore[1].game.awayTeam.Name
+  var awayTeamScore2 = SportsData.scoreboard.gameScore[1].awayScore
   
-  var homeTeamCity = SportsData.gameboxscore.game.homeTeam.City
-  var homeTeamName = SportsData.gameboxscore.game.homeTeam.Name
-  var homeTeamScore = SportsData.gameboxscore.quarterSummary.quarterTotals.homeScore
+  var homeTeamCity2 = SportsData.scoreboard.gameScore[1].game.homeTeam.City
+  var homeTeamName2 = SportsData.scoreboard.gameScore[1].game.homeTeam.Name
+  var homeTeamScore2 = SportsData.scoreboard.gameScore[1].awayScore
  
-  $("#away-team-city").html(awayTeamCity);
-  $("#away-team-name").html(awayTeamName);
-  $("#away-team-score").html(awayTeamScore);
+  $("#away-team-city1").html(awayTeamCity1);
+  $("#away-team-name1").html(awayTeamName1);
+  $("#away-team-score1").html(awayTeamScore1);
   
-  $("#home-team-city").html(homeTeamCity);
-  $("#home-team-name").html(homeTeamName);
-  $("#home-team-score").html(homeTeamScore);
+  $("#home-team-city1").html(homeTeamCity1);
+  $("#home-team-name1").html(homeTeamName1);
+  $("#home-team-score1").html(homeTeamScore1);
+
+  $("#away-team-city2").html(awayTeamCity2);
+  $("#away-team-name2").html(awayTeamName2);
+  $("#away-team-score2").html(awayTeamScore2);
+  
+  $("#home-team-city2").html(homeTeamCity2);
+  $("#home-team-name2").html(homeTeamName2);
+  $("#home-team-score2").html(homeTeamScore2);
+  
+  
+
+//refresh json data
+  var previous = null;
+    var current = null;
+    setInterval(function() {
+        $.getJSON("'https://www.mysportsfeeds.com/api/feed/pull/nba/2017-playoff/scoreboard.json?fordate=' + todayDate", function(json) 
+          {
+            current = JSON.stringify(json);            
+            if (previous && current && previous !== current) {
+                console.log('refresh');
+                location.reload();
+            }
+            previous = current;
+        });                       
+    }, 1000);
 
 
 
@@ -136,7 +152,7 @@ function wikipediaBox(search) {
 function displayGifs() {
     
     //the URL to search the site and grab 10 results
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchData + "&api_key=dc6zaTOxFJmzC&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchData + "&api_key=dc6zaTOxFJmzC&limit=10";
 
     //ajax function that gets a response from the site
     $.ajax({
@@ -146,8 +162,9 @@ function displayGifs() {
       console.log(response);
       for (var i = 0; i < response.data.length; i++) {
         var gifs = response.data[i].images.downsized.url;
+        $("#gifs").append("<img src='" + gifs + " '>");
       }
-      $("#gifs").append("<img src='" + gifs + " '>");
+      
             
     });
 };
@@ -162,14 +179,8 @@ $("#search").on("click", function(event) {
     wikipediaBox(searchData);
 })
 
-$("#search").on("click", function(event) {
-    
-    event.preventDefault();
-    searchData = $("#search-term").val().trim();
-    
-    console.log(searchData);
-    displayGifs();
-    wikipediaBox(searchData);
-})
 
 
+////////////////////////////////////////
+///////////////TWITTER//////////////////
+////////////////////////////////////////

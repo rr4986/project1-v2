@@ -15,72 +15,116 @@
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js">
   </script>
 </head>
-<body style= "background-image: url(assets/images/background.png)">
-<!--nav bar-->
-  <section class="hero is-dark" style= "background-image: url(assets/images/background1.png)">
-  <div class="hero-body">
-    <div class="container">
-      <div class="homepage text-center">
-
-        <div class="text-center" style="font-family: 'Pacifico', cursive"> 
-          <h1 class= "title text">Hoopla</h1><img src="assets/images/hooplaicon.png"/>
-       </div>
-      </div>
-
-      <!-- <h1 class="title" style="text-align: center;">
+<body style="background-image: url(assets/images/background.png)">
+  <!--nav bar-->
+  <section class="hero is-dark" style="background-image: url(assets/images/background1.png)">
+    <div class="hero-body">
+      <div class="container">
+        <div class="homepage text-center">
+          <div class="text-center" style="font-family: 'Pacifico', cursive">
+          <h1 class="title text">Hoopla</h1><img src="assets/images/hooplaicon.png" style="width: 100px;"></div>
+        </div><!-- <h1 class="title" style="text-align: center;">
         #HOOPLA
       </h1> -->
-      <h2 class="subtitle" style="text-align: center;">
-        Where hoops meets social
-      </h2>
-    </div>
-    <br>
-    <div class="field has-addons has-addons-centered">
-  <p class="control">
-    <span class="select">
-      <select name="nba team">
-        <option class ="search-term" value="Atlanta Hawks">Atlanta Hawks</option>
-        <option class ="search-term" value="Boston Celtics">Boston Celtics</option>
-        <option class ="search-term" value="Brooklyn Nets">Brooklyn Nets</option>
-        <option class ="search-term" value="Charlotte Hornets">Charlotte Hornets</option>
-        <option class ="search-term" value="Chicago Bulls">Chicago Bulls</option>
-        <option class ="search-term" value="Cleveland Cavaliers">Cleveland Cavaliers</option>
-        <option class ="search-term" value="Dallas Mavericks">Dallas Mavericks</option>
-        <option class ="search-term" value="Denver Nuggets">Denver Nuggets</option>
-        <option class ="search-term" value="Detroit Pistons">Detroit Pistons</option>
-        <option class ="search-term" value="Golden State Warriors">Golden State Warriors</option>
-        <option class ="search-term" value="Houston Rockets">Houston Rockets</option>
-        <option class ="search-term" value="Indiana Pacers">Indiana Pacers</option>
-        <option class ="search-term" value="Los Angeles Clippers">Los Angeles Clippers</option>
-        <option class ="search-term" value="Los Angeles Lakers">Los Angeles Lakers</option>
-        <option class ="search-term" value="Memphis Grizzlies">Memphis Grizzlies</option>
-        <option class ="search-term" value="Miami Heat">Miami Heat</option>
-        <option class ="search-term" value="Milwaukee Bucks">Milwaukee Bucks</option>
-        <option class ="search-term" value="Minnesota Timberwolves">Minnesota Timberwolves</option>
-        <option class ="search-term" value="New Orleans Pelicans">New Orleans Pelicans</option>
-        <option class ="search-term" value="New York Knicks">New York Knicks</option>
-        <option class ="search-term" value="Oklahoma City Thunder">Oklahoma City Thunder</option>
-        <option class ="search-term" value="Orlando Magic">Orlando Magic</option>
-        <option class ="search-term" value="Philadelphia 76ers">Philadelphia 76ers</option>
-        <option class ="search-term" value="Phoenix Suns">Phoenix Suns</option>
-        <option class ="search-term" value="Portland Trail Blazers">Portland Trail Blazers</option>
-        <option class ="search-term" value="Sacramento Kings">Sacramento Kings</option>
-        <option class ="search-term" value="San Antonio Spurs">San Antonio Spurs</option>
-        <option class ="search-term" value="Toronto Raptors">Toronto Raptors</option>
-        <option class ="search-term" value="Utah Jazz">Utah Jazz</option>
-        <option class ="search-term" value="Washington Wizards">Washington Wizards</option>
-      </select>
-    </span>
-  </p>
-  <p class="control">
-    <button type="submit" class="button is-primary" id="search">Choose</button>
-  </p>
-</div>
-  </div>
-</section>
+        <h2 class="subtitle" style="text-align: center;">Where hoops meets social</h2>
+      </div><br>
+      <div class="field has-addons has-addons-centered">
+        <p class="control"><span class="select"><select name="nba team">
+          <option class="search-term" value="Atlanta Hawks">
+            Atlanta Hawks
+          </option>
+          <option class="search-term" value="Boston Celtics">
+            Boston Celtics
+          </option>
+          <option class="search-term" value="Brooklyn Nets">
+            Brooklyn Nets
+          </option>
+          <option class="search-term" value="Charlotte Hornets">
+            Charlotte Hornets
+          </option>
+          <option class="search-term" value="Chicago Bulls">
+            Chicago Bulls
+          </option>
+          <option class="search-term" value="Cleveland Cavaliers">
+            Cleveland Cavaliers
+          </option>
+          <option class="search-term" value="Dallas Mavericks">
+            Dallas Mavericks
+          </option>
+          <option class="search-term" value="Denver Nuggets">
+            Denver Nuggets
+          </option>
+          <option class="search-term" value="Detroit Pistons">
+            Detroit Pistons
+          </option>
+          <option class="search-term" value="Golden State Warriors">
+            Golden State Warriors
+          </option>
+          <option class="search-term" value="Houston Rockets">
+            Houston Rockets
+          </option>
+          <option class="search-term" value="Indiana Pacers">
+            Indiana Pacers
+          </option>
+          <option class="search-term" value="Los Angeles Clippers">
+            Los Angeles Clippers
+          </option>
+          <option class="search-term" value="Los Angeles Lakers">
+            Los Angeles Lakers
+          </option>
+          <option class="search-term" value="Memphis Grizzlies">
+            Memphis Grizzlies
+          </option>
+          <option class="search-term" value="Miami Heat">
+            Miami Heat
+          </option>
+          <option class="search-term" value="Milwaukee Bucks">
+            Milwaukee Bucks
+          </option>
+          <option class="search-term" value="Minnesota Timberwolves">
+            Minnesota Timberwolves
+          </option>
+          <option class="search-term" value="New Orleans Pelicans">
+            New Orleans Pelicans
+          </option>
+          <option class="search-term" value="New York Knicks">
+            New York Knicks
+          </option>
+          <option class="search-term" value="Oklahoma City Thunder">
+            Oklahoma City Thunder
+          </option>
+          <option class="search-term" value="Orlando Magic">
+            Orlando Magic
+          </option>
+          <option class="search-term" value="Philadelphia 76ers">
+            Philadelphia 76ers
+          </option>
+          <option class="search-term" value="Phoenix Suns">
+            Phoenix Suns
+          </option>
+          <option class="search-term" value="Portland Trail Blazers">
+            Portland Trail Blazers
+          </option>
+          <option class="search-term" value="Sacramento Kings">
+            Sacramento Kings
+          </option>
+          <option class="search-term" value="San Antonio Spurs">
+            San Antonio Spurs
+          </option>
+          <option class="search-term" value="Toronto Raptors">
+            Toronto Raptors
+          </option>
+          <option class="search-term" value="Utah Jazz">
+            Utah Jazz
+          </option>
+          <option class="search-term" value="Washington Wizards">
+            Washington Wizards
+          </option>
+        </select></span></p>
+        <p class="control"><button class="button is-primary" id="search" type="submit">Choose</button></p>
       </div>
     </div>
-  </nav><br>
+  </section><br>
   <div class="tile is-ancestor">
     <div class="tile is-vertical is-12">
       <div class="tile">
@@ -89,7 +133,7 @@
             <!-- SCOREBOARD -->
             <article class="tile is-child box" style="background-color: rgba(245, 245, 245, 0.4)">
               <p class="title" style="text-align: center">SCOREBOARD</p>
-              <table class="table">
+              <table class="table is-striped is-narrow">
                 <thead>
                   <tr>
                     <th>Home/Away</th>
@@ -101,27 +145,49 @@
                 <tbody>
                   <tr>
                     <td>Away</td>
-                    <td id="away-team-city"></td>
-                    <td id="away-team-name"></td>
-                    <td id="away-team-score"></td>
+                    <td id="away-team-city1"></td>
+                    <td id="away-team-name1"></td>
+                    <td id="away-team-score1"></td>
                   </tr>
                   <tr>
                     <td>Home</td>
-                    <td id="home-team-city"></td>
-                    <td id="home-team-name"></td>
-                    <td id="home-team-score"></td>
+                    <td id="home-team-city1"></td>
+                    <td id="home-team-name1"></td>
+                    <td id="home-team-score1"></td>
                   </tr>
                 </tbody>
               </table>
-            </article>
-            <!-- TWITTER -->
+              <table class="table is-striped is-narrow">
+                <thead>
+                  <tr>
+                    <th>Home/Away</th>
+                    <th><abbr title="Location">City</abbr></th>
+                    <th>Team</th>
+                    <th><abbr title="Total Points">Score</abbr></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Away</td>
+                    <td id="away-team-city2"></td>
+                    <td id="away-team-name2"></td>
+                    <td id="away-team-score2"></td>
+                  </tr>
+                  <tr>
+                    <td>Home</td>
+                    <td id="home-team-city2"></td>
+                    <td id="home-team-name2"></td>
+                    <td id="home-team-score2"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </article><!-- TWITTER -->
             <div class="tile is-parent">
               <article class="tile is-child box" style="background-color: rgba(245, 245, 245, 0.4)">
                 <p class="title" style="text-align: center">BASKETBALL #HOOPLA</p>
-                <p class="subtitle" style="text-align: center;"">Join the conversation</p>
+                <p class="subtitle" style="text-align: center;">Join the conversation</p>
               </article>
-            </div>
-            <!-- WIKIPEDIA -->
+            </div><!-- WIKIPEDIA -->
             <div class="tile is-parent">
               <article class="tile is-child box" style="background-color: rgba(245, 245, 245, 0.4)">
                 <p class="title" style="text-align: center">WIKI-BALL</p>
@@ -130,18 +196,36 @@
                   <!-- Content -->
                 </div>
               </article>
-            </div>
-            <!-- GIFS -->
+            </div><!-- GIFS -->
             <div class="tile is-parent">
               <article class="tile is-child box" style="background-color: rgba(245, 245, 245, 0.4)">
                 <div class="content">
                   <p class="title" style="text-align: center;">MVG</p>
                   <p class="subtitle" style="text-align: center;">Most Valuable GIFs</p>
                   <div class="content" id="gifs">
+                    <a class="twitter-share-button" data-size="large" href="https://twitter.com/intent/tweet?text=My%20MVF%20-%20Most%20Valuable%20GIF">Tweet</a> 
+                    <script>
+                    window.twttr = (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                    t = window.twttr || {};
+                    if (d.getElementById(id)) return t;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+
+                    t._e = [];
+                    t.ready = function(f) {
+                    t._e.push(f);
+                    };
+
+                    return t;
+                    }(document, "script", "twitter-wjs"));
+                    </script>
                   </div>
                 </div>
               </article>
-            </div> 
+            </div>
             <script src="assets/javascript/app.js">
             </script>
           </article>
